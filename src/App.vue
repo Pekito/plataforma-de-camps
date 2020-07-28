@@ -1,32 +1,42 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app id="inspire">
+    <NavigationDrawer />
+    <MyHeader />
+    <v-main>
+      <transition mode="out-in">
+        <router-view />
+      </transition>
+    </v-main>
+    <MyFooter />
+  </v-app>
 </template>
 
+<script>
+import NavigationDrawer from "@/components/NavigationDrawer";
+import MyHeader from "@/components/MyHeader";
+import MyFooter from "@/components/MyFooter";
+export default {
+  name: "App",
+
+  components: { MyFooter, MyHeader, NavigationDrawer },
+
+  data: () => ({})
+};
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.v-enter,
+.v-leave-to {
+  opacity: 0;
 }
-
-#nav {
-  padding: 30px;
+.v-enter {
+  transform: translate3d(0, -20px, 0);
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.v-leave-to {
+  transform: translate3d(0, 20px, 0);
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.v-enter-active,
+.v-leave-active {
+  transition: all 0.5s;
 }
 </style>
