@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <v-container>
+    <h1>Área do Usuário</h1>
+  </v-container>
 </template>
 
 <script>
