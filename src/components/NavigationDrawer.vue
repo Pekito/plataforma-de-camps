@@ -61,8 +61,8 @@ export default {
   methods: {
     desconectarUsuario() {
       this.$store.commit("MUTATE_LOGGED", false);
-      this.$router.push({path: '/'});
-      this.$store.commit("TOGGLE_DRAWER", false)
+      this.$router.push({ path: "/" });
+      this.$store.commit("TOGGLE_DRAWER", false);
     }
   }
 };
